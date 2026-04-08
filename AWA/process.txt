@@ -1,0 +1,2 @@
+pyinstaller .\AI_feedback.py --onefile --noconsole --icon=app.ico --add-data "logo.png;." --add-data "app.ico;." --add-data ".env;."
+.\venv\Scripts\activate

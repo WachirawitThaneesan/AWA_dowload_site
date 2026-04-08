@@ -1,0 +1,35 @@
+# Environments
+venv/
+env/
+.venv/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyInstaller folders
+build/
+dist/
+AWA/build/
+AWA/dist/
+
+# Credentials and Environment variables
+.env
+AWA/.env
+creds.json
+AWA/creds.json
+license.json
+AWA/license.json
+
+# Download folders
+downloads/
+AWA/downloads/
+
+# IDE and Editors
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
