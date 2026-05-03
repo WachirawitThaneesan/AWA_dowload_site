@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AWA — Automatic Writing Assignment</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Sarabun:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                container: {
+                    center: true,
+                    padding: "1.5rem",
+                    screens: { "xl": "1100px" }, // จำกัดความกว้างไม่ให้เนื้อหาแตกออกข้างมากเกินไป
+                },
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Sarabun', 'system-ui', 'sans-serif'],
+                        serif: ['Merriweather', 'Georgia', 'serif'],
+                    },
+                    colors: {
+                        // ================================
+                        //   THEME: Microsoft Teams-like
+                        //   (Keep oxford-* names to avoid changing HTML)
+                        // ================================
+                        oxford: {
+                            // Primary button / headings / accents
+                            blue: "#6264A7",     // Teams primary purple
+                            // Soft background sections
+                            light: "#F5F6FA",    // Teams-like light surface
+                            // Main text
+                            text: "#1F1F1F",
+                            // Muted text
+                            muted: "#6B6E99",
+                            // Borders
+                            border: "#E1E1F0"
+                        },
+                        primary: "#6264A7",
+                    },
+                    boxShadow: {
+                        'card': "0 2px 8px rgba(0,0,0,0.04)",
+                        'card-hover': "0 4px 12px rgba(0,0,0,0.08)",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply text-oxford-text bg-white antialiased;
+            }
+            h1, h2, h3, h4 {
+                @apply font-serif text-oxford-blue;
+            }
+            p {
+                @apply font-sans;
+            }
+        }
+        
+        .section-padding {
+            @apply py-16 md:py-20;
+        }
+
+        .btn-primary {
+            @apply inline-flex items-center justify-center bg-oxford-blue text-white px-5 py-2.5 text-sm font-medium hover:bg-[#464775] transition-all duration-200 rounded-sm shadow-sm;
+        }
+        
+        .btn-outline {
+            @apply inline-flex items-center justify-center border border-oxford-border text-oxford-text px-5 py-2.5 text-sm font-medium hover:bg-gray-50 transition-all duration-200 rounded-sm;
+        }
+
+        .card-base {
+            @apply bg-white p-6 border border-oxford-border rounded-sm shadow-card hover:shadow-card-hover transition-all duration-300;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-oxford-border">
+        <div class="container mx-auto">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-oxford-blue text-white flex items-center justify-center font-serif font-bold rounded-sm">
+                        A
+                    </div>
+                    <span class="text-xl font-serif font-bold text-oxford-blue tracking-tight">AWA</span>
+                </div>
+
+                <div class="hidden md:flex items-center gap-6 text-sm font-medium text-oxford-muted">
+                    <a href="#how-it-works" class="hover:text-oxford-blue transition-colors">How it Works</a>
+                    <a href="#features" class="hover:text-oxford-blue transition-colors">Features</a>
+                    <a href="#results" class="hover:text-oxford-blue transition-colors">Results</a>
+                    <a href="https://github.com/JakkrapatPhanomwattanasak/AWA_download_site/releases/download/v1.2.2/AWA_Setup_1.2.2.exe" 
+                       class="btn-primary py-2 px-4">
+                        <i data-lucide="download" class="w-4 h-4 mr-2"></i> Download
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="section-padding bg-white">
+            <div class="container mx-auto">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="max-w-2xl">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 mb-6">
+                            <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+                            <span class="text-oxford-blue text-xs font-semibold uppercase tracking-wide">Works with Microsoft Teams</span>
+                        </div>
+                        
+                        <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                          AWA — Automatic<br class="hidden sm:block" />
+                          <span class="whitespace-nowrap">Writing Assignment</span>
+                        </h1>
+
+                        
+                        <p class="text-lg text-oxford-muted mb-8 leading-relaxed">
+                            Grading assignments will never be a burden again. 
+                            Save more than <span class="text-oxford-blue font-bold">70%</span> of your grading time with an intelligent assistant designed for educators.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="https://github.com/JakkrapatPhanomwattanasak/AWA_download_site/releases/download/v1.2.2/AWA_Setup_1.2.2.exe" 
+                               class="btn-primary">
+                                <i data-lucide="download" class="mr-2 h-4 w-4"></i> Download Free v1.2.2
+                            </a>
+                            <a href="#features" class="btn-outline">
+                                View Features <i data-lucide="arrow-right" class="ml-2 h-4 w-4"></i>
+                            </a>
+                        </div>
+
+                        <div class="mt-8 flex gap-6 text-sm text-oxford-muted">
+                            <div class="flex items-center gap-2"><i data-lucide="check-circle" class="h-4 w-4 text-green-600"></i> Easy to Use</div>
+                            <div class="flex items-center gap-2"><i data-lucide="check-circle" class="h-4 w-4 text-green-600"></i> Secure Data</div>
+                            <div class="flex items-center gap-2"><i data-lucide="check-circle" class="h-4 w-4 text-green-600"></i> 100% Free</div>
+                        </div>
+                    </div>
+
+                    <div class="relative hidden lg:block max-w-md mx-auto">
+                        <div class="relative rounded-sm overflow-hidden shadow-card border border-oxford-border p-2 bg-white">
+                            <img src="https://plus.unsplash.com/premium_photo-1661543089020-366e8863f9ef?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                                 alt="Teacher using AWA" 
+                                 class="w-full h-auto object-cover grayscale-[10%] rounded-sm aspect-[4/3]">
+                        </div>
+                        <!-- CHANGED: removed border border-oxford-border only -->
+                        <div class="absolute -bottom-6 -left-6 bg-white rounded-sm p-4 shadow-md flex items-center gap-3">
+                            <div class="w-10 h-10 bg-blue-50 rounded-sm flex items-center justify-center text-oxford-blue font-bold text-lg">70%</div>
+                            <div>
+                                <p class="text-sm font-bold text-oxford-blue">Time Saved</p>
+                                <p class="text-xs text-oxford-muted">On average</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding bg-oxford-light border-y border-oxford-border">
+            <div class="container mx-auto">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-12">
+                        <span class="text-xs font-bold text-oxford-muted uppercase tracking-wider">Challenges</span>
+                        <h2 class="text-3xl font-bold mt-2 mb-4">Problems AWA Solves</h2>
+                        <p class="text-oxford-muted">Have you experienced these issues in your classroom?</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-white p-4 border border-oxford-border rounded-sm flex items-center gap-4">
+                            <div class="bg-red-50 p-2 rounded-sm"><i data-lucide="users" class="h-5 w-5 text-red-600"></i></div>
+                            <span class="text-sm font-medium">Too many students → Can't keep up</span>
+                        </div>
+                        <div class="bg-white p-4 border border-oxford-border rounded-sm flex items-center gap-4">
+                            <div class="bg-red-50 p-2 rounded-sm"><i data-lucide="clock" class="h-5 w-5 text-red-600"></i></div>
+                            <span class="text-sm font-medium">Written assignments take too long</span>
+                        </div>
+                        <div class="bg-white p-4 border border-oxford-border rounded-sm flex items-center gap-4">
+                            <div class="bg-red-50 p-2 rounded-sm"><i data-lucide="alert-circle" class="h-5 w-5 text-red-600"></i></div>
+                            <span class="text-sm font-medium">Hard to give detailed feedback</span>
+                        </div>
+                        <div class="bg-white p-4 border border-oxford-border rounded-sm flex items-center gap-4">
+                            <div class="bg-red-50 p-2 rounded-sm"><i data-lucide="file-question" class="h-5 w-5 text-red-600"></i></div>
+                            <span class="text-sm font-medium">Downloading files one by one</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 text-center bg-oxford-blue text-white p-6 rounded-sm shadow-sm">
+                        <div class="flex items-center justify-center gap-2 mb-1">
+                            <i data-lucide="check-circle-2" class="h-6 w-6 text-green-400"></i>
+                            <h3 class="text-sm text-blue-100">AWA solves all of this in one click</h3>
+                        </div>
+                        <p class="text-sm text-blue-100">No complex installation. Start using it immediately.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="section-padding bg-white">
+            <div class="container mx-auto">
+                <div class="text-center mb-16">
+                    <span class="text-xs font-bold text-oxford-muted uppercase tracking-wider">Process</span>
+                    <h2 class="text-3xl font-bold mt-2">How It Works</h2>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center group">
+                        <div class="w-16 h-16 mx-auto bg-oxford-light rounded-full flex items-center justify-center mb-4 group-hover:bg-blue-50 transition-colors">
+                            <i data-lucide="log-in" class="h-8 w-8 text-oxford-blue"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">1. Sign in to Teams</h3>
+                        <p class="text-sm text-oxford-muted leading-relaxed">AWA automatically loads student names and assignments.</p>
+                    </div>
+                    <div class="text-center group">
+                        <div class="w-16 h-16 mx-auto bg-oxford-light rounded-full flex items-center justify-center mb-4 group-hover:bg-blue-50 transition-colors">
+                            <i data-lucide="brain" class="h-8 w-8 text-oxford-blue"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">2. AI-Powered Analysis</h3>
+                        <p class="text-sm text-oxford-muted leading-relaxed">System analyzes files (PDF, Images), formats them, and suggests scores.</p>
+                    </div>
+                    <div class="text-center group">
+                        <div class="w-16 h-16 mx-auto bg-oxford-light rounded-full flex items-center justify-center mb-4 group-hover:bg-blue-50 transition-colors">
+                            <i data-lucide="zap" class="h-8 w-8 text-oxford-blue"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">3. Save 70% Time</h3>
+                        <p class="text-sm text-oxford-muted leading-relaxed">Review, adjust if needed, and submit. Free up your time for teaching.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="section-padding bg-oxford-light border-y border-oxford-border">
+            <div class="container mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold">Key Features</h2>
+                    <p class="text-oxford-muted mt-2">Designed specifically for the academic workflow.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card-base">
+                        <i data-lucide="user-check" class="h-8 w-8 text-oxford-blue mb-4"></i>
+                        <h3 class="font-bold mb-2">Personal Assistant</h3>
+                        <p class="text-sm text-oxford-muted">Just enter your credentials. The system handles the navigation.</p>
+                    </div>
+                    <div class="card-base">
+                        <i data-lucide="file-image" class="h-8 w-8 text-oxford-blue mb-4"></i>
+                        <h3 class="font-bold mb-2">Universal Reader</h3>
+                        <p class="text-sm text-oxford-muted">Reads phone photos, multi-page PDFs, and scanned docs easily.</p>
+                    </div>
+                    <div class="card-base">
+                        <i data-lucide="message-square" class="h-8 w-8 text-oxford-blue mb-4"></i>
+                        <h3 class="font-bold mb-2">Pro Feedback</h3>
+                        <p class="text-sm text-oxford-muted">Clear, readable, personalized feedback adjustable by level.</p>
+                    </div>
+                    <div class="card-base">
+                        <i data-lucide="shield" class="h-8 w-8 text-oxford-blue mb-4"></i>
+                        <h3 class="font-bold mb-2">Data Security</h3>
+                        <p class="text-sm text-oxford-muted">All processing happens locally on your computer.</p>
+                    </div>
+                    <div class="card-base">
+                        <i data-lucide="heart" class="h-8 w-8 text-oxford-blue mb-4"></i>
+                        <h3 class="font-bold mb-2">Reduce Stress</h3>
+                        <p class="text-sm text-oxford-muted">No rushing, no fear of backlog. Work at your pace.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="results" class="section-padding bg-white">
+            <div class="container mx-auto">
+                <div class="max-w-5xl mx-auto">
+                    <h2 class="text-3xl font-bold text-center mb-12">Proven Results</h2>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="flex gap-4 items-start p-6 border border-oxford-border rounded-sm">
+                            <div class="bg-blue-50 text-oxford-blue font-bold text-xl px-4 py-3 rounded-sm">3-5x</div>
+                            <div>
+                                <h3 class="font-bold text-lg">Faster Grading</h3>
+                                <p class="text-sm text-oxford-muted">Grade 40 students in under 10 minutes.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 items-start p-6 border border-oxford-border rounded-sm">
+                            <div class="bg-blue-50 text-oxford-blue font-bold text-xl px-4 py-3 rounded-sm">100%</div>
+                            <div>
+                                <h3 class="font-bold text-lg">Quality Feedback</h3>
+                                <p class="text-sm text-oxford-muted">Detailed recommendations for every student.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding bg-oxford-light border-y border-oxford-border">
+            <div class="container mx-auto max-w-4xl text-center">
+                <h2 class="text-3xl font-bold mb-10">Who Is AWA For?</h2>
+                <div class="grid sm:grid-cols-2 gap-4 text-left">
+                    <div class="bg-white p-4 border border-oxford-border rounded-sm flex items-center gap-3">
+                        <i data-lucide="book-open" class="h-5 w-5 text-oxford-blue"></i>
+                        <span class="text-sm font-medium">Language Arts Teachers</span>
+                    </div>
+                    <div class="bg-white p-4 border border-oxford-border rounded-sm flex items-center gap-3">
+                        <i data-lucide="building-2" class="h-5 w-5 text-oxford-blue"></i>
+                        <span class="text-sm font-medium">Schools using Microsoft Teams</span>
+                    </div>
+                    <div class="bg-white p-4 border border-oxford-border rounded-sm flex items-center gap-3">
+                        <i data-lucide="users" class="h-5 w-5 text-oxford-blue"></i>
+                        <span class="text-sm font-medium">Large Class Sizes</span>
+                    </div>
+                    <div class="bg-white p-4 border border-oxford-border rounded-sm flex items-center gap-3">
+                        <i data-lucide="timer" class="h-5 w-5 text-oxford-blue"></i>
+                        <span class="text-sm font-medium">Teachers seeking efficiency</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-oxford-blue text-white text-center">
+            <div class="container mx-auto px-4 max-w-3xl">
+                <i data-lucide="sparkles" class="h-10 w-10 mx-auto mb-6 text-blue-200"></i>
+                <h2 class="text-3xl md:text-4xl font-bold mb-8 text-white">Our Vision</h2>
+                <div class="space-y-6 text-lg leading-relaxed text-blue-100 font-serif">
+                    <p>
+                        We want teachers to spend more time <span class="text-white font-semibold">"teaching students"</span> rather than doing paperwork.
+                    </p>
+                    <p>
+                        And we want AI to be a tool that <span class="text-white font-semibold">helps teachers</span>, not replaces them.
+                    </p>
+                </div>
+                <div class="mt-12 pt-8 border-t border-blue-800">
+                    <p class="text-xl font-medium">AWA is designed to be a <span class="font-bold text-white">Trusted Assistant</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding bg-white text-center">
+            <div class="container mx-auto max-w-2xl">
+                <h2 class="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+                <p class="text-oxford-muted mb-8">Download AWA today and transform how you grade.</p>
+                
+                <div class="bg-gray-50 border border-oxford-border rounded-sm p-8">
+                    <div class="inline-block px-3 py-1 bg-green-100 text-green-800 text-xs font-bold uppercase rounded-full mb-6">
+                        Latest Version: v1.2.2
+                    </div>
+                    <br>
+                    <a href="https://github.com/JakkrapatPhanomwattanasak/AWA_download_site/releases/download/v1.2.2/AWA_Setup_1.2.2.exe" 
+                       class="btn-primary py-4 px-8 text-base">
+                        <i data-lucide="download" class="mr-2 h-5 w-5"></i> Download AWA for Windows
+                    </a>
+                    
+                    <div class="flex justify-center gap-6 mt-8 text-xs text-oxford-muted">
+                        <span class="flex items-center gap-1"><i data-lucide="monitor" class="h-3 w-3"></i> Windows 10/11</span>
+                        <span class="flex items-center gap-1"><i data-lucide="shield" class="h-3 w-3"></i> No Setup Needed</span>
+                    </div>
+                </div>
+                <p class="text-xs text-oxford-muted mt-6">100% Free • Secure Data • Open Source</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-oxford-light border-t border-oxford-border py-10">
+        <div class="container mx-auto text-center">
+            <h3 class="text-2xl font-serif font-bold text-oxford-blue mb-2">AWA</h3>
+            <p class="text-sm text-oxford-muted mb-6">Automatic Writing Assignment — Intelligent grading assistant for modern teachers</p>
+            <p class="text-xs text-gray-400">© 2025 AWA. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
+
+
+
+
+
